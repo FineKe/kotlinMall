@@ -1,0 +1,78 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 26
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // Anko Commons
+    compile "org.jetbrains.anko:anko-commons:$anko_version"
+
+    // Support-v4 (Anko Layouts)
+    compile "org.jetbrains.anko:anko-support-v4:$anko_version"
+
+    // Appcompat-v7 (only Anko Commons)
+    compile "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
+
+    //RxKotlin And RxAndroid
+    compile "io.reactivex:rxkotlin:$rx_kotlin_version"
+    compile "io.reactivex:rxandroid:$rx_android_version"
+
+    //Retrofit
+    compile "com.squareup.okhttp3:okhttp:${ok_http_version}"
+    compile "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    compile "com.squareup.okhttp3:logging-interceptor:${ok_http_version}"
+    compile "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+    compile "com.squareup.retrofit2:adapter-rxjava:${retrofit_version}"
+
+    //dagger2
+    compile "com.google.dagger:dagger:${dagger_version}"
+    kapt "com.google.dagger:dagger-compiler:${dagger_version}"
+
+    //RxLifecycle
+    compile "com.trello:rxlifecycle-kotlin:$rx_lifecycle_version"
+    compile "com.trello:rxlifecycle-components:$rx_lifecycle_version"
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+
+    //Glide
+    compile "com.github.bumptech.glide:glide:${glide_version}"
+
+    //Circle ImageView
+    compile "de.hdodenhof:circleimageview:${circle_imageView_version}"
+    //Take Photo
+    compile "com.jph.takephoto:takephoto_library:${take_photo_version}"
+    //Alert View
+    compile "com.bigkoo:alertview:${alert_view_version}"
+    //七牛
+    compile 'com.qiniu:qiniu-android-sdk:7.3.+'
+
+}
